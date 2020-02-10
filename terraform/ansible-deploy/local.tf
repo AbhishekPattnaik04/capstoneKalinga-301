@@ -6,7 +6,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-west-2"
+  region = "us-west-2a"
   }
 
 resource "aws_instance" "backend" {
