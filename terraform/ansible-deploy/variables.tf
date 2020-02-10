@@ -1,5 +1,5 @@
 variable "key_name" {
-  default = "capstone301"
+  default = "301cap"
 }
 
 variable "pvt_key" {
