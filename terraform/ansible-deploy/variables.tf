@@ -7,5 +7,5 @@ variable "pvt_key" {
 }
 
 variable "sg-id" {
-  default = "sg-0aa372d197dc34c80"
+  default = "sg-0fba88e1e581d045a"
 }
