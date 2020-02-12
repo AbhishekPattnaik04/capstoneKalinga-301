@@ -24,7 +24,15 @@ node {
         }
         }
 	
-	stage('Quality Gate'){
+
+
+  
+   stage('Maven-Test') {
+   sh label: '', script: 'mvn test'
+  }
+  
+  
+  	stage('Quality Gate'){
 timeout(time: 1, unit: 'HOURS') {
 def qg = waitForQualityGate()
 if (qg.status != 'OK') {
@@ -32,12 +40,6 @@ error "Pipeline aborted due to quality gate failure: ${qg.status}"
 }
 }
 }
-
-  
-   stage('Maven-Test') {
-   sh label: '', script: 'mvn test'
-  }
-  
    stage('Maven-Package') {
    sh label: '', script: 'mvn package'
   }
