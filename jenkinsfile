@@ -47,47 +47,7 @@ node {
         server.upload(uploadSpec)
         
         }
-     
-    stage('Jfrog Artifactory download'){
-    def server= Artifactory.server 'Artifactory'
-    def downloadSpec = """{
-    "files": [
-    {
-      "pattern": "Kalingamusic/*.war",
-      "target": "/home/mtadminnuvepro/artifacts/"
-      
-    }
-    ]
-    }"""
-    server.download(downloadSpec)
-    
-}
-
-   stage('Input for deploy in test server'){
-   input('Do you want to proceed?')
-   }
-
-   stage('Docker-Stage-Deployment') {
-   sh label: '', script: 'docker-compose up -d --build'
-  }
-   stage('Input for deploy in production server'){
-   input('Do you want to proceed for deployment into production server?')
-   }
- 
-  stage('Geting Ready For Ansible') {
-  sh label: 'Docker', script: 'cp -rf target/*.war terraform/ansible-deploy/ansible/tomcat/templates/'
-  sh label: 'Jenkins', script: "echo '<h1> TASK BUILD ID: ${env.BUILD_DISPLAY_NAME}</h1>' > terraform/ansible-deploy/ansible/tomcat/templates/apps/index.html"
-}  
-   
- }
-
-def project_terra="terraform/ansible-deploy"
-dir(project_terra) {
-   stage('Prod Deployment on AWS'){
-   sh label: 'terraform', script: '/bin/terraform  init'
-   sh label: 'terraform', script: '/bin/terraform  apply -input=false -auto-approve'
-   }
-}
+     }
 
 notify('Job Completed')   
 } catch (err) {
