@@ -3,5 +3,6 @@ version: '2'
 services:
   kalingamusic:
     build: . 
+    image: abhishekpattnaik004/kalingamusic:$BUILD_NUMBER
     ports:
       - '30080:8080'
