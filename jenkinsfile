@@ -4,7 +4,7 @@ node {
 
      
   stage('Git-Checkout') {
-   git 'https://github.com/AbhishekPattnaik04/KalingaMusic.git'
+   git 'https://github.com/AbhishekPattnaik04/capstoneKalinga-301.git'
   }
     
  def project_path=""
