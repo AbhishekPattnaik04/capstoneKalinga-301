@@ -59,6 +59,7 @@ node {
    }
 
    stage('Docker-Stage-Deployment') {
+   sh 'ls -a'
    sh label: '', script: 'docker-compose up -d --build'
   }
    stage('Pushing DockerImage to DockerHub') {
