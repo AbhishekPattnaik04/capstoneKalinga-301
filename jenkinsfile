@@ -4,7 +4,7 @@ node {
 
      
   stage('Git-Checkout') {
-   git 'https://github.com/AbhishekPattnaik04/capstoneKalinga-301.git'
+   git branch:'qa_server',url :'https://github.com/AbhishekPattnaik04/capstoneKalinga-301.git'
   }
     
  def project_path=""
